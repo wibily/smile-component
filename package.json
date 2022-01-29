@@ -1,0 +1,29 @@
+{
+  "name": "smile-component",
+  "version": "1.0.0",
+  "description": "",
+  "source": "src/index.js",
+  "main": "dist/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wibily/smile-component.git"
+  },
+  "author": "Derp",
+  "license": "spite",
+  "bugs": {
+    "url": "https://github.com/wibily/smile-component/issues"
+  },
+  "homepage": "https://github.com/wibily/smile-component#readme",
+  "devDependencies": {
+    "parcel": "^2.2.1"
+  },
+  "dependencies": {
+    "@aws-sdk/client-cognito-identity": "^3.49.0",
+    "@aws-sdk/client-rekognition": "^3.49.0",
+    "@aws-sdk/credential-provider-cognito-identity": "^3.49.0"
+  }
+}
