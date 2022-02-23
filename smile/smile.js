@@ -1,4 +1,4 @@
-import placeholder from './img/noimg.png';
+import placeholder from '../img/noimg.png';
 import { detectSmiles } from './rekognition';
 
 const ValidityStateFlags = {
@@ -16,12 +16,12 @@ const ValidityStateFlags = {
 
 const randomBoomerSaying = () => {
   const boomerSayings = [
-    "Smile and pull yourself up by your bootstraps!",
-    "Smile, rise and grind, hustlers!",
-    "Smile! You can't have a million-dollar dream with a minimum-wage work ethic",
-    "Smile! Turn that frown, upside down",
-    "Smile! Good things happen to those who hustle",
-    "Smile! We demand high performance happy here",
+    "Pull yourself up by your bootstraps!",
+    "Rise and grind, hustlers!",
+    "You can't have a million-dollar dream with a minimum-wage work ethic",
+    "Smile! Postive vibes only",
+    "Good things happen to those who hustle",
+    "We demand high performance happy!",
     "Smile and smash those KPIs!"
   ];
 
@@ -90,7 +90,8 @@ export default class MandatorySmile extends HTMLElement {
           border: 2px solid red;
         }
       </style>
-    `
+    `;
+
     this.btn = shadow.getElementById('upload');
     this.img = shadow.getElementById('portrait');
     this.container = shadow.getElementById('container');
@@ -100,10 +101,12 @@ export default class MandatorySmile extends HTMLElement {
     this.container.classList.add('invalid');
   }
 
+  removeInvalidStyling() {
+    this.container.classList.remove('invalid');
+  }
+
   connectedCallback() {
-
     this.addEventListener('invalid', this.addInvalidStyling)
-
     this.btn.addEventListener('click', this.checkSmile.bind(this));
   }
 
@@ -128,6 +131,11 @@ export default class MandatorySmile extends HTMLElement {
         this.internals_.setValidity({
           ...ValidityStateFlags
         });
+        this.removeInvalidStyling();
+        const result = new FormData();
+        result.append('img', this.img.src);
+        resp.FaceDetails[0].Emotions.forEach(emotion => result.append('emotion-' + emotion.Type, emotion.Confidence));
+        this.internals_.setFormValue(result);
       }
     });
   }

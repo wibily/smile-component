@@ -6,7 +6,8 @@
   "main": "dist/main.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "parcel index.html"
+    "start": "parcel index.html",
+    "smile": "parcel smile/smile.html"
   },
   "repository": {
     "type": "git",
