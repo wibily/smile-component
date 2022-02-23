@@ -84,10 +84,13 @@ export default class MandatorySmile extends HTMLElement {
 
       <style>
         #container{
-          display: inline-block;
+          display: block;
         }
         #container.invalid {
           border: 2px solid red;
+        }
+        #portrait {
+          max-width: 75vw;
         }
       </style>
     `;
