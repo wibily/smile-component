@@ -1,5 +1,5 @@
 const VALUE_MISSING_MSG = "You must say the words!";
-const PLEDGE = "I love working here";
+const PLEDGE = "My workplace is my family and I love working here";
 
 const grammar = `#JSGF V1.0; grammar pledge; public <pledge> = ${PLEDGE};`;
 
@@ -91,7 +91,8 @@ export default class MandatoryPledge extends HTMLElement {
 
     recognition.onresult = (event) => {
       const transcript = event.results[0][0].transcript;
-      if (transcript !== PLEDGE) {
+      console.log(transcript);
+      if (transcript.toLowerCase() !== PLEDGE.toLowerCase()) {
         const errorMessage = `You said: ${transcript}, please say ${PLEDGE}`;
         this.internals_.setValidity({
           ...ValidityStateFlags, ...{ 'customError': true },
@@ -106,13 +107,3 @@ export default class MandatoryPledge extends HTMLElement {
     recognition.start();
   }
 }
-/*
-SpeechRecognitionResultList {0: SpeechRecognitionResult, length: 1}
-0: SpeechRecognitionResult
-0: SpeechRecognitionAlternative {transcript: 'I love working here', confidence: 0.9564103484153748}
-isFinal: true
-length: 1
-[[Prototype]]: SpeechRecognitionResult
-length: 1
-[[Prototype]]: SpeechRecognitionResultList
-*/
