@@ -1,12 +1,11 @@
 {
   "name": "smile-component",
   "version": "1.0.0",
-  "description": "",
-  "source": "src/index.js",
-  "main": "dist/main.js",
+  "description": "dystopian happiness",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "parcel index.html",
+    "build": "parcel build index.html",
     "smile": "parcel smile/smile.html"
   },
   "repository": {
