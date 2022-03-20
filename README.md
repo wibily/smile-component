@@ -2,8 +2,6 @@
 
 This is a form validating custom web component that will refuse to validate unless you smile. As it is framework agnostic, with only a few lines of JavaScript, you can embed this wherever you have morale issues! Suggested usages include: employee login portals, customer complaint forms and Disneyland.
 
-Try it out in chrome: https://mandatorysmile.netlify.app/
-
 
 ## Getting Started
   1. Rename the .env.sample file to .env
